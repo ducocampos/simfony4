@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Listagem de autores
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-sm-center">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="thead-light"> 
+                <div class="row">
+                    <div class="col-sm-1">
+                        <th scope="col">ID</th>
+                    </div>
+                    <div class="col-sm-auto">
+                        <th scope="col">Autor</th>
+                    </div>
+                    <div class="col-sm-8"></div>
+                </div>
+            </thead>
+            <tbody>
+                <div class="row">
+                    {% for autor in autores %}
+                        <tr>
+                            <div class="col-sm-1">
+                                <th scope="row">{{ autor.id }}</th>
+                            </div>
+                            <div class="col-sm-auto">
+                                <td>{{ autor.autor }}</td>
+                            </div>
+                            <div class="col-sm-8">
+                        </tr>
+                    {% endfor %}                    
+                </div>
+            </tbody>
+        </table>    
+    </div>
+    <br/><br/>
+{% endblock %}

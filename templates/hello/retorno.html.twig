@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Retorno!
+{% endblock %}
+
+{% block body %}
+
+
+    {# {{ dump(retorno) }} #}
+
+    
+    {% for produto in retorno %}
+        <tr><td>{{ produto.id }} </td><td>{{ produto.produto }}</td></tr>
+    {% endfor %}
+
+{% endblock %}
