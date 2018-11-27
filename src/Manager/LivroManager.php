@@ -26,7 +26,8 @@ class LivroManager extends AbstractCrud
         LEFT JOIN autores ON {$this->getTable()}.idAutor = autores.id
         LEFT JOIN editoras ON {$this->getTable()}.idEditora = editoras.id
         LEFT JOIN categorias ON {$this->getTable()}.idCategoria = categorias.id
-        LEFT JOIN publicacoes ON {$this->getTable()}.idPublicacao = publicacoes.id");
+        LEFT JOIN publicacoes ON {$this->getTable()}.idPublicacao = publicacoes.id
+        ORDER BY {$this->getOrder()}");
         return $this;
     }
 

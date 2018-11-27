@@ -24,14 +24,14 @@
             <tbody>
                 {% for livro in livros %}
                     <tr>
-                        <th>{{ livro.id }}</th>
-                        <td>{{ livro.titulo }}</td>
-                        <td>{{ livro.autor }}</td>
-                        <td>{{ livro.editora }}</td>
-                        <td>{{ livro.edicao }}</td>
-                        <td>{{ livro.paginas }}</td>
-                        <td>{{ livro.categoria }}</td>
-                        <td>{{ livro.anoPublicacao }}</td>
+                        <th class="align-middle">{{ livro.id }}</th>
+                        <td class="align-middle">{{ livro.titulo }}</td>
+                        <td class="align-middle">{{ livro.autor }}</td>
+                        <td class="align-middle">{{ livro.editora }}</td>
+                        <td class="align-middle">{{ livro.edicao }}</td>
+                        <td class="align-middle">{{ livro.paginas }}</td>
+                        <td class="align-middle">{{ livro.categoria }}</td>
+                        <td class="align-middle">{{ livro.anoPublicacao }}</td>
                     </tr>
                 {% endfor %}                    
             </tbody>

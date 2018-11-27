@@ -15,6 +15,7 @@ class LivroModel
     {
         return $this->manager
         ->setTable('livros')
+        ->setOrder('livros.id ASC')
         ->listar()
         ->executar('select');
     }
