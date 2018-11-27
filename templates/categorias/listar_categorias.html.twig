@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Listagem de autores
+{% endblock %}
+
+{% block body %}
+<br/>
+    <div class="container">
+        <div class="row justify-content-sm-center">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="thead-light"> 
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <th>{{ categoria.id }}</th>
+                        <td>{{ categoria.categoria }}</td>
+                    </tr>
+                {% endfor %}                    
+            </tbody>
+        </table>    
+    </div>
+    <br/><br/>
+{% endblock %}
