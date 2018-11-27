@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Listagem de livros
+{% endblock %}
+
+{% block body %}
+<br/>
+    <div class="container">
+        <div class="row justify-content-center">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col" class="text-center">Título</th>
+                    <th scope="col" class="text-center">Autor</th>
+                    <th scope="col" class="text-center">Editora</th>
+                    <th scope="col" class="text-center">Edição</th>
+                    <th scope="col" class="text-center">Páginas</th>
+                    <th scope="col" class="text-center">Categoria</th>
+                    <th scope="col" class="text-center">Ano Publicação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for livro in livros %}
+                    <tr>
+                        <th>{{ livro.id }}</th>
+                        <td>{{ livro.titulo }}</td>
+                        <td>{{ livro.autor }}</td>
+                        <td>{{ livro.editora }}</td>
+                        <td>{{ livro.edicao }}</td>
+                        <td>{{ livro.paginas }}</td>
+                        <td>{{ livro.categoria }}</td>
+                        <td>{{ livro.anoPublicacao }}</td>
+                    </tr>
+                {% endfor %}                    
+            </tbody>
+        </table>    
+    </div>
+    <br/><br/>
+{% endblock %}

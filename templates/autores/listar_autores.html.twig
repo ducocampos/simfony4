@@ -5,34 +5,23 @@
 {% endblock %}
 
 {% block body %}
+<br/>
     <div class="container">
         <div class="row justify-content-sm-center">
         <table class="table table-bordered table-hover table-sm">
             <thead class="thead-light"> 
-                <div class="row">
-                    <div class="col-sm-1">
-                        <th scope="col">ID</th>
-                    </div>
-                    <div class="col-sm-auto">
-                        <th scope="col">Autor</th>
-                    </div>
-                    <div class="col-sm-8"></div>
-                </div>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Autor</th>
+                </tr>
             </thead>
             <tbody>
-                <div class="row">
-                    {% for autor in autores %}
-                        <tr>
-                            <div class="col-sm-1">
-                                <th scope="row">{{ autor.id }}</th>
-                            </div>
-                            <div class="col-sm-auto">
-                                <td>{{ autor.autor }}</td>
-                            </div>
-                            <div class="col-sm-8">
-                        </tr>
-                    {% endfor %}                    
-                </div>
+                {% for autor in autores %}
+                    <tr>
+                        <th>{{ autor.id }}</th>
+                        <td>{{ autor.autor }}</td>
+                    </tr>
+                {% endfor %}                    
             </tbody>
         </table>    
     </div>
