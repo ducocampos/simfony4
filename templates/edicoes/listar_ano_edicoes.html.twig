@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Listagem dos anos de edições
+{% endblock %}
+
+{% block body %}
+<br/>
+    <div class="container">
+        <div class="row justify-content-sm-center">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="thead-light"> 
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Ano Edição</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ano in anos %}
+                    <tr>
+                        <th>{{ ano.id }}</th>
+                        <td>{{ ano.anoPublicacao }}</td>
+                    </tr>
+                {% endfor %}                    
+            </tbody>
+        </table>    
+    </div>
+    <br/><br/>
+{% endblock %}
