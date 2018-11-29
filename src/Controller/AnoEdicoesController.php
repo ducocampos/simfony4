@@ -33,7 +33,8 @@ class AnoEdicoesController extends AbstractController
     public function inserir(Request $request)
     {
         $dadosForm = $request->request->all();
-        $this->model->adicionarAno($dadosForm);
+        $this->model->setAnoEdicao($dadosForm);
+        $this->model->adicionarAno();
         return $this->render("edicoes/listar_ano_edicoes.html.twig", [
             'anos' => $this->model->listarAnoEdicoes()
         ]);

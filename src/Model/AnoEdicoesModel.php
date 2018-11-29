@@ -22,9 +22,8 @@ class AnoEdicoesModel
         ->executar('select');
     }
 
-    public function adicionarAno($ano)
+    public function adicionarAno()
     {
-        $this->setAnoEdicao($ano);
         $teste = $this->getAnoEdicao();
         $teste2[] = 'anoPublicacao';
   
