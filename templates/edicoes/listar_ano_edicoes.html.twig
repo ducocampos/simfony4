@@ -8,6 +8,17 @@
     <br/>
     <div class="container">
         <div class="row justify-content-sm-center">
+            <form class="form-inline" action="{{ path('ano_edicoes_inserir') }}" method="POST">
+                <label class="sr-only" for="formAnoEdicoes">Nome</label>
+                <input type="text" class="form-control mb-2 mr-sm-2" id="formAnoEdicoes" placeholder="Inserir o novo ano" name="ano">
+                
+                <span id="botoesPrinc">
+                    <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Adicionar</button>
+                </span>
+                <span id="botoesEdit">
+                </span>
+                
+            </form>
             <table class="table table-bordered table-hover table-sm">
                 <thead class="thead-light">
                     <tr>
