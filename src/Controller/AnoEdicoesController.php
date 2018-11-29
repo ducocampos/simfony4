@@ -40,11 +40,14 @@ class AnoEdicoesController extends AbstractController
     }
 
     /**
-     * @Route("/ano_edicoes/delete/{$id}", name="ano_edicoes_deletar")
+     * @Route("/ano_edicoes/delete/{id}", name="ano_edicoes_deletar")
      */
 
     public function deletar($id)
     {
-        # code...
+        $this->model->deletarAno($id);
+        return $this->render("edicoes/listar_ano_edicoes.html.twig", [
+            'anos' => $this->model->listarAnoEdicoes()
+        ]);
     }
 }

@@ -7,6 +7,7 @@ use App\Manager\AnoEdicoesManager;
 class AnoEdicoesModel
 {
     private $anoEdicao;
+    private $id;
     
     public function __construct()
     {
@@ -35,6 +36,17 @@ class AnoEdicoesModel
         ->executar('insert');
     }
 
+    public function deletarAno($id)
+    {
+        $this->setId($id);
+        return $this->manager
+        ->setTable('publicacoes')
+        ->setCampo(['id'])
+        ->setValor([$this->getId()])
+        ->deletar()
+        ->executar('delete');
+    }
+
     public function getAnoEdicao()
     {
         return $this->anoEdicao;
@@ -43,6 +55,20 @@ class AnoEdicoesModel
     public function setAnoEdicao($anoEdicao)
     {
         $this->anoEdicao = $anoEdicao;
+
+        return $this;
+    }
+
+ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

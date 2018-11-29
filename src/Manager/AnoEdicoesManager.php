@@ -24,4 +24,10 @@ class AnoEdicoesManager extends AbstractCrud
         return $this;
     }
 
+    public function deletar()
+    {
+        $this->setSql("DELETE FROM {$this->getTable()} WHERE {$this->getCampo()} = {$this->getValor()}");
+        return $this;
+    }
+
 }

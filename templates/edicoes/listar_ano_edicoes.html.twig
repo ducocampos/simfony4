@@ -20,7 +20,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Ano Edição</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col" colspan="2" class="text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,7 +28,8 @@
                         <tr>
                             <th>{{ ano.id }}</th>
                             <td>{{ ano.anoPublicacao }}</td>
-                            <td><a href={{ path('ano_edicoes_deletar', {'':ano.id} ) }}><span class="fas fa-trash-alt"></td>
+                            <td class="text-center"><a href="#"><span class="fas fa-pencil-alt"></td>
+                            <td class="text-center"><a href={{ path('ano_edicoes_deletar', { id:ano.id } ) }}><span class="fas fa-trash-alt"></td>
                         </tr>
                     {% endfor %}
                 </tbody>
