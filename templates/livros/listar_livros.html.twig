@@ -5,37 +5,37 @@
 {% endblock %}
 
 {% block body %}
-<br/>
+    <br/>
     <div class="container">
         <div class="row justify-content-center">
-        <table class="table table-bordered table-hover table-sm">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col" class="text-center">Título</th>
-                    <th scope="col" class="text-center">Autor</th>
-                    <th scope="col" class="text-center">Editora</th>
-                    <th scope="col" class="text-center">Edição</th>
-                    <th scope="col" class="text-center">Páginas</th>
-                    <th scope="col" class="text-center">Categoria</th>
-                    <th scope="col" class="text-center">Ano Publicação</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for livro in livros %}
+            <table class="table table-bordered table-hover table-sm">
+                <thead class="thead-light">
                     <tr>
-                        <th class="align-middle">{{ livro.id }}</th>
-                        <td class="align-middle">{{ livro.titulo }}</td>
-                        <td class="align-middle">{{ livro.autor }}</td>
-                        <td class="align-middle">{{ livro.editora }}</td>
-                        <td class="align-middle">{{ livro.edicao }}</td>
-                        <td class="align-middle">{{ livro.paginas }}</td>
-                        <td class="align-middle">{{ livro.categoria }}</td>
-                        <td class="align-middle">{{ livro.anoPublicacao }}</td>
+                        <th scope="col">ID</th>
+                        <th scope="col" class="text-center">Título</th>
+                        <th scope="col" class="text-center">Autor</th>
+                        <th scope="col" class="text-center">Editora</th>
+                        <th scope="col" class="text-center">Edição</th>
+                        <th scope="col" class="text-center">Páginas</th>
+                        <th scope="col" class="text-center">Categoria</th>
+                        <th scope="col" class="text-center">Ano Publicação</th>
                     </tr>
-                {% endfor %}                    
-            </tbody>
-        </table>    
-    </div>
-    <br/><br/>
-{% endblock %}
+                </thead>
+                <tbody>
+                    {% for livro in livros %}
+                        <tr>
+                            <th class="align-middle">{{ livro.id }}</th>
+                            <td class="align-middle">{{ livro.titulo }}</td>
+                            <td class="align-middle">{{ livro.autor }}</td>
+                            <td class="align-middle">{{ livro.editora }}</td>
+                            <td class="align-middle">{{ livro.edicao }}</td>
+                            <td class="align-middle">{{ livro.paginas }}</td>
+                            <td class="align-middle">{{ livro.categoria }}</td>
+                            <td class="align-middle">{{ livro.anoPublicacao }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br/><br/>
+    {% endblock %}

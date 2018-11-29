@@ -5,25 +5,34 @@
 {% endblock %}
 
 {% block body %}
-<br/>
+    <br/>
     <div class="container">
         <div class="row justify-content-sm-center">
-        <table class="table table-bordered table-hover table-sm">
-            <thead class="thead-light"> 
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Ano Edição</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for ano in anos %}
+            <form class="form-inline" action="{{ path('ano_edicoes_inserir') }}" method="POST">
+                <label class="sr-only" for="formAnoEdicoes">Nome</label>
+                <input type="text" class="form-control mb-2 mr-sm-2" id="formAnoEdicoes" placeholder="Ano da edição" name="ano">
+
+                <button type="submit" class="btn btn-primary mb-2">Adicionar</button>
+            </form>
+            
+            <table class="table table-bordered table-hover table-sm">
+                <thead class="thead-light">
                     <tr>
-                        <th>{{ ano.id }}</th>
-                        <td>{{ ano.anoPublicacao }}</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">Ano Edição</th>
+                        <th scope="col">Ações</th>
                     </tr>
-                {% endfor %}                    
-            </tbody>
-        </table>    
-    </div>
-    <br/><br/>
-{% endblock %}
+                </thead>
+                <tbody>
+                    {% for ano in anos %}
+                        <tr>
+                            <th>{{ ano.id }}</th>
+                            <td>{{ ano.anoPublicacao }}</td>
+                            <td><a href={{ path('ano_edicoes_deletar', {'':ano.id} ) }}><span class="fas fa-trash-alt"></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br/><br/>
+    {% endblock %}

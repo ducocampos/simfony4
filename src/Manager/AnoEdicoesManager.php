@@ -18,4 +18,10 @@ class AnoEdicoesManager extends AbstractCrud
         return $this;
     }
 
+    public function inserir()
+    {
+        $this->setSql("INSERT INTO {$this->getTable()} ({$this->getCampo()}) VALUES (' {$this->getValor()} ')");
+        return $this;
+    }
+
 }

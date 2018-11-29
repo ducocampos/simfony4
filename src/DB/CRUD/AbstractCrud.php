@@ -171,6 +171,7 @@ abstract class AbstractCrud implements InterfaceCrud
             $this->sql = '';
             $this->campos = implode(" , ",$campos);
             return $this;
+            
         }
         return false;
     }
