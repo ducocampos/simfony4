@@ -41,12 +41,26 @@ class AnoEdicoesController extends AbstractController
     }
 
     /**
+     * @Route("/ano_edicoes/editar/", name="ano_edicoes_editar")
+     */
+    public function editar(Request $request) 
+    {
+        $dadosForm = $request->request->all();
+        $this->model->setAnoEdicao($dadosForm['ano']);
+        $this->model->setId($dadosForm['id']);
+        $this->model->editarAno();
+        return $this->render("edicoes/listar_ano_edicoes.html.twig", [
+            'anos' => $this->model->listarAnoEdicoes()
+        ]);
+    }
+
+    /**
      * @Route("/ano_edicoes/delete/{id}", name="ano_edicoes_deletar")
      */
-
     public function deletar($id)
     {
-        $this->model->deletarAno($id);
+        $this->model->setId($id);
+        $this->model->deletarAno();
         return $this->render("edicoes/listar_ano_edicoes.html.twig", [
             'anos' => $this->model->listarAnoEdicoes()
         ]);

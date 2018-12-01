@@ -35,9 +35,19 @@ class AnoEdicoesModel
         ->executar('insert');
     }
 
-    public function deletarAno($id)
+    public function editarAno()
     {
-        $this->setId($id);
+        return $this->manager
+        ->setTable('publicacoes')
+        ->setCampo(['anoPublicacao'])
+        ->setValor([$this->getAnoEdicao()])
+        ->setWhere($this->getId())
+        ->editar()
+        ->executar('update');
+    }
+
+    public function deletarAno()
+    {
         return $this->manager
         ->setTable('publicacoes')
         ->setCampo(['id'])

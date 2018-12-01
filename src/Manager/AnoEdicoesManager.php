@@ -30,4 +30,9 @@ class AnoEdicoesManager extends AbstractCrud
         return $this;
     }
 
+    public function editar()
+    {
+        $this->setSql("UPDATE {$this->getTable()} SET {$this->getCampo()} = {$this->getValor()} WHERE id = {$this->getWhere()}");
+        return $this;
+    }
 }
