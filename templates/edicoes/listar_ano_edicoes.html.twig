@@ -71,7 +71,7 @@
                             <th>{{ ano.id }}</th>
                             <td>{{ ano.anoPublicacao }}</td>
                             <td class="text-center"><a href="#exampleModal" data-toggle="modal" data-ano="{{ ano.anoPublicacao }}" data-id="{{ ano.id }}"><span class="fas fa-pencil-alt"></span></a></td>
-                            <td class="text-center"><a href="{{ path('ano_edicoes_deletar', { id:ano.id }) }}" onclick="confirmar_exclusao();"><span class="fas fa-trash-alt"></span></a></td>
+                            <td class="text-center"><a href="{{ path('ano_edicoes_deletar', { id:ano.id }) }}" onclick="confirmar_exclusao_ano();"><span class="fas fa-trash-alt"></span></a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

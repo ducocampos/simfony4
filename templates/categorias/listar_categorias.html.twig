@@ -8,11 +8,62 @@
 <br/>
     <div class="container">
         <div class="row justify-content-sm-center">
+
+        <div class="modal fade" id="modalExemplo-inserirCat" tabindex="-1" role="dialog" aria-labelledby="modal-inserirCat" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-inserirCat">Adicionar Nova Categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-inline" action="{{ path('categorias_inserir') }}" method="POST" name="inserir">
+                        <label class="sr-only" for="formNovaCategoria">Nome</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" id="formNovaCategoria" placeholder="Inserir nova categoria" name="categoria">
+                        <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Adicionar</button>
+                        <button type="button" class="btn btn-secondary mb-2 mr-sm-2" data-dismiss="modal">Fechar</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mb-4 mr-sm-4" data-toggle="modal" data-target="#modalExemplo-inserirCat">
+            Adicionar Nova Categoria
+        </button>
+
+        <div class="modal fade" id="modalEditarCategoria" tabindex="-1" role="dialog" aria-labelledby="modalEditarCategoria" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarCategoria">Edição de categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ path('categorias_editar') }}" method="POST" name="editar">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Categoria:</label>
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="recipient-name" name="categoria">
+                            <input type="hidden" class="form-control" id="recipient-id" name="id">
+                            <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Enviar</button>
+                            <button type="button" class="btn btn-secondary mb-2 mr-sm-2" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+
         <table class="table table-bordered table-hover table-sm">
             <thead class="thead-light"> 
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Categoria</th>
+                    <th scope="col" colspan="2" class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +71,8 @@
                     <tr>
                         <th>{{ categoria.id }}</th>
                         <td>{{ categoria.categoria }}</td>
+                        <td class="text-center"><a href="#modalEditarCategoria" data-toggle="modal" data-categoria="{{ categoria.categoria }}" data-id="{{ categoria.id }}"><span class="fas fa-pencil-alt"></span></a></td>
+                        <td class="text-center"><a href="{{ path('deletar_categorias', { id:categoria.id }) }}" onclick="confirmar_exclusao_categoria();"><span class="fas fa-trash-alt"></span></a></td>
                     </tr>
                 {% endfor %}                    
             </tbody>
