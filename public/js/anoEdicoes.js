@@ -27,6 +27,15 @@ $('#modalEditorasEditar').on('show.bs.modal', function (event) {
   modal.find('.modal-body #recipient-id').val(id)
 })   
 
+$('#modalAutoresEditar').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) 
+  var autor = button.data('autor') 
+  var id = button.data('id')
+  var modal = $(this)
+  modal.find('.modal-body #recipient-name').val(autor)
+  modal.find('.modal-body #recipient-id').val(id)
+})   
+
 function confirmar_exclusao_ano() {
   if (confirm('Deseja realmente deletar esse ano?')) {
       return  true;
@@ -41,6 +50,12 @@ function confirmar_exclusao_categoria() {
 
 function confirmar_exclusao_editora() {
   if (confirm('Deseja realmente deletar essa editora?')) {
+      return  true;
+  }
+}
+
+function confirmar_exclusao_autor() {
+  if (confirm('Deseja realmente deletar esse autor?')) {
       return  true;
   }
 }

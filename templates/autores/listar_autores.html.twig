@@ -8,22 +8,75 @@
 <br/>
     <div class="container">
         <div class="row justify-content-sm-center">
-        <table class="table table-bordered table-hover table-sm">
-            <thead class="thead-light"> 
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Autor</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for autor in autores %}
+
+            <div class="modal fade" id="modalAutoresInserir" tabindex="-1" role="dialog" aria-labelledby="modal-inserir" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-inserir">Adicionar autor</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-inline" action="{{ path('autores_inserir') }}" method="POST" name="inserir">
+                            <label class="sr-only" for="formAnoEdicoes">Autor</label>
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="formAnoEdicoes" placeholder="Inserir o novo autor" name="autor">
+                            <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Adicionar</button>
+                            <button type="button" class="btn btn-secondary mb-2 mr-sm-2" data-dismiss="modal">Fechar</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary mb-4 mr-sm-4" data-toggle="modal" data-target="#modalAutoresInserir">
+                Adicionar autor
+            </button>
+
+            <div class="modal fade" id="modalAutoresEditar" tabindex="-1" role="dialog" aria-labelledby="modalAutoresEditarLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAutoresEditarLabel">Edição de autores</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ path('autores_editar') }}" method="POST" name="editar">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Ano:</label>
+                                <input type="text" class="form-control mb-2 mr-sm-2" id="recipient-name" name="autor">
+                                <input type="hidden" class="form-control" id="recipient-id" name="id">
+                                <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Enviar</button>
+                                <button type="button" class="btn btn-secondary mb-2 mr-sm-2" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-bordered table-hover table-sm">
+                <thead class="thead-light"> 
                     <tr>
-                        <th>{{ autor.id }}</th>
-                        <td>{{ autor.autor }}</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col" colspan="2" class="text-center">Ações</th>
                     </tr>
-                {% endfor %}                    
-            </tbody>
-        </table>    
+                </thead>
+                <tbody>
+                    {% for autor in autores %}
+                        <tr>
+                            <th>{{ autor.id }}</th>
+                            <td>{{ autor.autor }}</td>
+                            <td class="text-center"><a href="#modalAutoresEditar" data-toggle="modal" data-autor="{{ autor.autor }}" data-id="{{ autor.id }}"><span class="fas fa-pencil-alt"></span></a></td>
+                            <td class="text-center"><a href="{{ path('autores_deletar', { id:autor.id }) }}" onclick="confirmar_exclusao_autor();"><span class="fas fa-trash-alt"></span></a></td>
+                        </tr>
+                    {% endfor %}                    
+                </tbody>
+            </table>    
     </div>
     <br/><br/>
 {% endblock %}
