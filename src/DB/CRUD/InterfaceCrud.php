@@ -16,6 +16,7 @@ interface InterfaceCrud
     public function setWhere($arrayWhere);
     public function setLimit(Array $limit);
     public function setOrder($order = 'id ASC');
+    public function setcamposUp(string $campo);
     public function getPdoInstance();
     public function getValor();
     public function getTable();
@@ -27,4 +28,5 @@ interface InterfaceCrud
     public function getLimit();
     public function getOrder();
     public function getGroup();
+    public function getCamposUp();
 }

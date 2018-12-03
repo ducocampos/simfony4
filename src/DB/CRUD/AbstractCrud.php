@@ -16,6 +16,7 @@ abstract class AbstractCrud implements InterfaceCrud
     private $group = '';
     private $limit = '';
     private $order = ' id ASC ';
+    private $camposUp;
 
     public function __construct(\PDO $pdoInstance)
     {
@@ -337,5 +338,23 @@ abstract class AbstractCrud implements InterfaceCrud
     public function getGroup()
     {
         return $this->group;
+    }
+
+    /**
+     * Retorna os campos com os valores para usar com UPDATE
+     */ 
+    public function getCamposUp()
+    {
+        return $this->camposUp;
+    }
+
+    /**
+     * Define os campos com os valores para usar com UPDATE
+     */ 
+    public function setCamposUp($camposUp)
+    {
+        $this->camposUp = $camposUp;
+
+        return $this;
     }
 }
