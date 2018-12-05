@@ -96,3 +96,28 @@ function confirmar_exclusao_livro() {
       return  true;
   }
 }
+
+
+$(document).ready(function() {
+  $('#example').DataTable( {
+      language: {
+          url : '../DataTables/Portuguese-Brasil.json',
+          decimal: ","
+      },
+      "pageLength": 15,
+      "lengthMenu": [[10, 15, 25, 50, -1], [10, 15, 25, 50, "All"]],
+      // data: livros1,
+      "columns": [
+          { data : "id" },
+          { data : "titulo" },
+          { data : "autor" },
+          { data : "editora" },
+          { data : "edicao" },
+          { data : "paginas" },
+          { data : "categoria" },
+          { data : "anoPublicacao" },
+          { data : "teste" },
+          { data : "teste2" }
+      ]
+  } );
+} );
