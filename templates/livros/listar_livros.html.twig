@@ -78,9 +78,13 @@
                 </div>
             </div>
 
+        {% if is_granted("ROLE_ADMIN") %}
+        
             <button type="button" class="btn btn-primary mb-4 mr-sm-4" data-toggle="modal" data-target="#modalLivrosInserir">
                 Adicionar livro
             </button>
+
+        {% endif %}
 
             <div class="modal fade" id="modalLivrosEditar" tabindex="-1" role="dialog" aria-labelledby="modalLivrosEditarLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -164,8 +168,12 @@
                         <th scope="col" class="text-center">Páginas</th>
                         <th scope="col" class="text-center">Categoria</th>
                         <th scope="col" class="text-center">Ano Publicação</th>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        
                         <th scope="col" class="text-center">Editar</th>
                         <th scope="col" class="text-center">Excluir</th>
+
+                    {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -179,12 +187,16 @@
                             <td class="align-middle">{{ livro.paginas }}</td>
                             <td class="align-middle">{{ livro.categoria }}</td>
                             <td class="align-middle">{{ livro.anoPublicacao }}</td>
+                        {% if is_granted("ROLE_ADMIN") %}
+
                             <td class="text-center">
                                 <a href="#modalLivrosEditar" data-toggle="modal" data-titulo="{{ livro.titulo }}" data-id="{{ livro.id }}" data-autor="{{ livro.autor }}" data-autorid="{{ livro.autoresId }}" data-editora="{{ livro.editora }}" data-editoraid="{{ livro.editorasId }}" data-edicao="{{ livro.edicao }}" data-paginas="{{ livro.paginas }}" data-categoria="{{ livro.categoria }}" data-categoriaid="{{ livro.categoriasId }}" data-ano="{{ livro.anoPublicacao }}" data-anoid="{{ livro.publicacoesId }}">
                                     <span class="fas fa-pencil-alt"></span>
                                 </a>
                             </td>
                             <td class="text-center"><a href="{{ path('livros_deletar', { id:livro.id }) }}" onclick="confirmar_exclusao_livro();"><span class="fas fa-trash-alt"></span></a></td>
+
+                        {% endif %}
                         </tr>
                     {% endfor %}
                 </tbody>

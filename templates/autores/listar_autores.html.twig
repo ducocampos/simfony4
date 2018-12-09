@@ -6,8 +6,8 @@
 
 {% block body %}
 <br/>
-    <div class="container">
-        <div class="row justify-content-sm-center">
+    <div class="container-fluid px-md-5">
+        <div class="row justify-content-center">
 
             <div class="modal fade" id="modalAutoresInserir" tabindex="-1" role="dialog" aria-labelledby="modal-inserir" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -58,11 +58,11 @@
                 </div>
             </div>
 
-            <table class="table table-bordered table-hover table-sm">
+            <table class="table table-bordered table-hover table-sm" id="autoresTable">
                 <thead class="thead-light"> 
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Autor</th>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">Autor</th>
                         <th scope="col" colspan="2" class="text-center">Ações</th>
                     </tr>
                 </thead>

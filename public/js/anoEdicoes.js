@@ -106,7 +106,6 @@ $(document).ready(function() {
       },
       "pageLength": 15,
       "lengthMenu": [[10, 15, 25, 50, -1], [10, 15, 25, 50, "All"]],
-      // data: livros1,
       "columns": [
           { data : "id" },
           { data : "titulo" },
@@ -121,3 +120,5 @@ $(document).ready(function() {
       ]
   } );
 } );
+
+

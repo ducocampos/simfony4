@@ -30,26 +30,59 @@
               
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link" href={{ path('livros_raiz') }}>Livros</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href={{ path('autores_raiz') }}>Autores</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ path('editoras_raiz') }}>Editoras</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ path('categorias_raiz') }}>Categorias</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ path('ano_edicoes_raiz') }}>Anos das edições</a>
-                    </li>
+                  
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ path('livros_raiz') }}>Livros</a>
+                        </li>
+
+
+                    {% if is_granted("ROLE_ADMIN") %}
+                    
+                        <li class="nav-item">
+                        <a class="nav-link" href={{ path('autores_raiz') }}>Autores</a>
+                        </li>
+
+                    {% endif %}
+
+                    {% if is_granted("ROLE_ADMIN") %}
+
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ path('editoras_raiz') }}>Editoras</a>
+                        </li>
+
+                    {% endif %}
+
+                    {% if is_granted("ROLE_ADMIN") %}
+
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ path('categorias_raiz') }}>Categorias</a>
+                        </li>
+
+                    {% endif %}
+
+                    {% if is_granted("ROLE_ADMIN") %}
+
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ path('ano_edicoes_raiz') }}>Anos das edições</a>
+                        </li>
+
+                    {% endif %}
                   </ul>
-                  <ul class="nav-item navbar-nav navbar-right">
-                    <li>
-                         <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Login</a>
-                    </li>
+                  <ul class="navbar-nav navbar-right mt-2 mt-lg-0">
+
+                    {% if is_granted("ROLE_USER") %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> Olá {{ app.user.nome }}!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ path('logout') }}><span class="fas fa-sign-out-alt"></span> Logout</a>
+                        </li>
+                    {% else %}
+                         
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ path('login') }}><span class="fas fa-sign-in-alt"></span> Login</a>
+                        </li>
+                    {% endif %}
                   </ul>
                 </div>
               </nav>
