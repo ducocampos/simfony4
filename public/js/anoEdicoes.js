@@ -147,3 +147,100 @@ if (teste == 'granted') {
     } );
   } );
 }
+
+
+$(document).ready(function() {
+  $('#autoresTable').DataTable( {
+      "autoWidth": false,
+      responsive: false,
+      language: {
+          url : '../DataTables/Portuguese-Brasil.json',
+          decimal: ","
+      },
+      "pageLength": 15,
+      "lengthMenu": [[10, 15, 25, 50, -1], [10, 15, 25, 50, "All"]],
+      columnDefs: [
+        { "width": "200px", "targets": [0] },       
+        { "width": "1100px", "targets": [1] },
+        { "width": "200px", "targets": [2,3] }
+      ],
+      "columns": [
+          { data : "id" },
+          { data : "autor" },
+          { data : "editar" },
+          { data : "deletar" }
+      ]
+  } );
+} );
+
+$(document).ready(function() {
+  $('#editorasTable').DataTable( {
+      "autoWidth": false,
+      responsive: false,
+      language: {
+          url : '../DataTables/Portuguese-Brasil.json',
+          decimal: ","
+      },
+      "pageLength": 15,
+      "lengthMenu": [[10, 15, 25, 50, -1], [10, 15, 25, 50, "All"]],
+      columnDefs: [
+        { "width": "200px", "targets": [0] },       
+        { "width": "1100px", "targets": [1] },
+        { "width": "50px", "targets": [2,3] }
+      ],
+      "columns": [
+          { data : "id" },
+          { data : "autor" },
+          { data : "editar" },
+          { data : "deletar" }
+      ]
+  } );
+} );
+
+$(document).ready(function() {
+  $('#categoriasTable').DataTable( {
+      "autoWidth": false,
+      responsive: false,
+      language: {
+          url : '../DataTables/Portuguese-Brasil.json',
+          decimal: ","
+      },
+      "pageLength": 15,
+      "lengthMenu": [[10, 15, 25, 50, -1], [10, 15, 25, 50, "All"]],
+      columnDefs: [
+        { "width": "200px", "targets": [0] },       
+        { "width": "1100px", "targets": [1] },
+        { "width": "200px", "targets": [2,3] }
+      ],
+      "columns": [
+          { data : "id" },
+          { data : "editora" },
+          { data : "editar" },
+          { data : "deletar" }
+      ]
+  } );
+} );
+
+$(document).ready(function() {
+  $('#anoEdicoesTable').DataTable( {
+      "autoWidth": false,
+      responsive: false,
+      language: {
+          url : '../DataTables/Portuguese-Brasil.json',
+          decimal: ","
+      },
+      "pageLength": 15,
+      "lengthMenu": [[10, 15, 25, 50, -1], [10, 15, 25, 50, "All"]],
+      columnDefs: [
+        { "width": "200px", "targets": [0] },       
+        { "width": "1100px", "targets": [1] },
+        { "width": "200px", "targets": [2,3] }
+      ],
+      "columns": [
+          { data : "id" },
+          { data : "editora" },
+          { data : "editar" },
+          { data : "deletar" }
+      ]
+  } );
+} );
