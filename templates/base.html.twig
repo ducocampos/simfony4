@@ -12,18 +12,17 @@
 
         <style>
             footer {
-                background-color: navy;
                 color: white;
                 padding: 5px;
                 font-size: 16px;
             }
-            
+
         </style>
     </head>
     <body>
         {% block header %}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href={{ path('raiz') }}>SISTEMA LiVrOs</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+                <a class="navbar-brand text-white" href={{ path('raiz') }}>SISTEMA LiVrOs</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -32,14 +31,14 @@
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                   
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('livros_raiz') }}>Livros</a>
+                            <a class="nav-link text-white" href={{ path('livros_raiz') }}>Livros</a>
                         </li>
 
 
                     {% if is_granted("ROLE_ADMIN") %}
                     
                         <li class="nav-item">
-                        <a class="nav-link" href={{ path('autores_raiz') }}>Autores</a>
+                        <a class="nav-link text-white" href={{ path('autores_raiz') }}>Autores</a>
                         </li>
 
                     {% endif %}
@@ -47,7 +46,7 @@
                     {% if is_granted("ROLE_ADMIN") %}
 
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('editoras_raiz') }}>Editoras</a>
+                            <a class="nav-link text-white" href={{ path('editoras_raiz') }}>Editoras</a>
                         </li>
 
                     {% endif %}
@@ -55,7 +54,7 @@
                     {% if is_granted("ROLE_ADMIN") %}
 
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('categorias_raiz') }}>Categorias</a>
+                            <a class="nav-link text-white" href={{ path('categorias_raiz') }}>Categorias</a>
                         </li>
 
                     {% endif %}
@@ -63,7 +62,7 @@
                     {% if is_granted("ROLE_ADMIN") %}
 
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('ano_edicoes_raiz') }}>Anos das edições</a>
+                            <a class="nav-link text-white" href={{ path('ano_edicoes_raiz') }}>Anos das edições</a>
                         </li>
 
                     {% endif %}
@@ -74,17 +73,17 @@
                         <li class="nav-item">
                         {% if is_granted("IS_AUTHENTICATED_FULLY") %}
                         
-                            <a class="nav-link" href="#"> Olá {{ app.user.nome }}!</a>
+                            <a class="nav-link text-white" href="#"> Olá {{ app.user.nome }}!</a>
 
                         {% endif %}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('logout') }}><span class="fas fa-sign-out-alt"></span> Logout</a>
+                            <a class="nav-link text-white" href={{ path('logout') }}><span class="fas fa-sign-out-alt"></span> Logout</a>
                         </li>
                     {% else %}
                          
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('login') }}><span class="fas fa-sign-in-alt"></span> Login</a>
+                            <a class="nav-link text-white" href={{ path('login') }}><span class="fas fa-sign-in-alt"></span> Login</a>
                         </li>
                     {% endif %}
                   </ul>
@@ -96,7 +95,7 @@
 
     
         {% block footer %}
-            <footer class="text-center fixed-bottom">Sistema desenvolvido por Eduardo Costa Campos</footer>
+            <footer class="text-center fixed-bottom bg-primary">Sistema desenvolvido por Eduardo Costa Campos</footer>
         {% endblock %}
 
         {% block javascripts %}
