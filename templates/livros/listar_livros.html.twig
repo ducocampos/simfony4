@@ -203,4 +203,12 @@
             </table>
         </div>
         <br/><br/>
+        {% if is_granted("ROLE_ADMIN") %}
+        
+            <script>
+                var teste = "granted";
+            </script>
+            
+        {% endif %}
+        
     {% endblock %}
