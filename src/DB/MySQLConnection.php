@@ -7,7 +7,7 @@ namespace App\DB;
 class MySQLConnection implements IConnection
 {
     private static $usuario = 'eduardo';
-    private static $senha = 'ressaca31';
+    private static $senha = 'teste';
     private static $host = 'localhost';
     private static $bancoDados = 'teste';
     private static $tipo = 'mysql';
